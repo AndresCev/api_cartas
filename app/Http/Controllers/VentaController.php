@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Venta;
+use App\Middleware\Authenticate;
 use Illuminate\Http\Request;
 
 class VentaController extends Controller
@@ -36,7 +37,7 @@ class VentaController extends Controller
                 $response = $e->getMessage();
             }
 
-
+ 
         }
 
 
@@ -66,7 +67,7 @@ public function listaventas(Request $request,$name){
     public function listaCompra(Request $request,$name){
 
         $compra = Venta::where('nombre_venta','like','%'. $name .'%')->orderBy('precio','asc')->get();
-
+       $nombre_usuario1 = new Authenticate();
 
             $data = [];
 
@@ -77,6 +78,8 @@ public function listaventas(Request $request,$name){
                     'name' => $compra1->nombre_venta,
                     'quantity' => $compra1->cantidad,
                     'price' => $compra1->cards_id,
+                    'nombre_usuraio' => $nombre_usuraio1->$permiso
+                    $user => 
 
 
                 ];

@@ -29,10 +29,10 @@ Route::prefix('colections')->group(function () {
 });
 Route::prefix('venta')->group(function (){
 	
-    Route::post('/createventa',[VentaController::class,"createventa"])->middleware('auth');
+    
     Route::get('/listaventas/{nombre_venta}',[VentaController::class,"listaventas"])->middleware('auth');
     Route::post('/createventa',[VentaController::class,"createventa"])->middleware('auth');
-     Route::get('/listaCompra/{nombre_venta}',[VentaController::class,"listaCompra"])->middleware('auth');
+    Route::get('/listaCompra/{nombre_venta}',[VentaController::class,"listaCompra"])->middleware('auth');
 
 });
 

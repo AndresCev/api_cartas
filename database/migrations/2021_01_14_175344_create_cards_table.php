@@ -18,18 +18,13 @@ class CreateCardsTable extends Migration
             $table->timestamps();
         });
         
-        Schema::table('ventas',function(Blueprint $table){
-            $table->foreignId('cards_id')->nullable()->constrained();
-        });
+       
     }
 
     
     public function down()
     {
-        Schema::table('ventas', function (Blueprint $table){
-            $table->dropForeign(['cards_id']);
-            $table->dropColumn('cards_id');
-        });
+       
         Schema::dropIfExists('cards');
     }
 }
