@@ -89,6 +89,29 @@ class UsuarioController extends Controller
 			}
 		}
 	}
+	public function newPassword(Request $request){
+
+        $respuesta = "";
+
+        $data = User::where('email',$request->email) -> first();
+
+        $newPassword = Str::random(10);
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+
+        $password = substr(str_shuffle($permitted_chars), 0, 10);
+
+        $hashedPassword = Hash::make($password);
+
+        try{
+            $data->password = $hashedPassword;
+            $data->save();
+            $respuesta =  $newPassword;
+        }catch(\Exception $e){
+            $respuesta = $e->getMessage();
+        }
+
+        return response($respuesta);
+    }
 	
 
 	 
