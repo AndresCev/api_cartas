@@ -26,9 +26,6 @@ class CardController extends Controller
 
 			$card = new Card();
 			
-
-			
-
 			
 			$card->nombre = $data->nombre;
 			$card->descripcion = $data->descripcion;

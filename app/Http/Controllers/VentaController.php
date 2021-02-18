@@ -79,8 +79,7 @@ public function listaventas(Request $request,$name){
                     'quantity' => $compra1->cantidad,
                     'price' => $compra1->cards_id,
                     'nombre_usuraio' => $nombre_usuraio1->$permiso
-                    $user => 
-
+                   
 
                 ];
         }
